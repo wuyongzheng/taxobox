@@ -1,24 +1,30 @@
 # TaxoBox
 
-A client-side web app to explore plant taxonomy. Add plants, see their shared
-ancestry, and jump to Wikipedia for every node. Data is loaded from local TSV
-files generated from Wikipedia dumps. A demo can be accessed at github.io
-(TODO)
+A client-side web app to explore taxonomy across domains (e.g., plants, animals).
+Add pages, see their shared ancestry, and jump to Wikipedia for every node.
+Data is loaded from local TSV files generated from Wikipedia dumps. A demo can
+be accessed at github.io (TODO)
 
 ## Quick start
 
-1. Generate language/domain pages and configs:
+1. Generate TSV data from a Wikipedia dump:
+
+```bash
+python3 scripts/parse-xmldump.py -d wikidump/enwiki-20260101-pages-articles-multistream.xml.bz2 -t html/tax-en-plant.tsv -p html/page-en-plant.tsv -l err -r Plantae
+```
+
+2. Generate language/domain pages and configs:
 
 ```bash
 python3 scripts/generate-pages.py
 ```
 
-2. Serve the folder with a static server (required for `fetch()`):
+3. Serve the folder with a static server (required for `fetch()`):
 
 ```bash
 python3 -m http.server 8000 --directory html
 ```
-3. Open `http://localhost:8000/` in your browser.
+4. Open `http://localhost:8000/` in your browser.
 
 ## Files
 
@@ -34,7 +40,7 @@ python3 -m http.server 8000 --directory html
 
 ## Config generation
 
-Edit `html/pages.json` to add languages, then regenerate pages with:
+Edit `html/pages.json` to add languages or domains, then regenerate pages with:
 
 ```bash
 python3 scripts/generate-pages.py
@@ -78,7 +84,7 @@ Each line: `name<TAB>length<TAB>taxonomy<TAB>image<TAB>redir1<TAB>redir2...`
 - Tree visualization of shared taxonomy (rooted at the lowest common ancestor).
 - Search with alternate names.
 - Clickable nodes linking to Wikipedia.
-- Shareable links via the `plants` query parameter.
+- Shareable links via the `pages` query parameter.
 - Pruning of single-child taxonomy nodes without images (unless `rank!`).
 
 ## Share links

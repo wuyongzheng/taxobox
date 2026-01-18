@@ -1,7 +1,7 @@
 .PHONY: all
 all: html/page-en-animal.tsv.gz html/page-en-plant.tsv.gz html/page-zh-animal.tsv.gz html/page-zh-plant.tsv.gz html/tax-en-animal.tsv.gz html/tax-en-plant.tsv.gz html/tax-zh-animal.tsv.gz html/tax-zh-plant.tsv.gz
 
-html/tax-en-plant.tsv page-en-plant.tsv: wikidump/enwiki-20260101-pages-articles-multistream.xml.bz2 scripts/parse-xmldump.py
+html/tax-en-plant.tsv html/page-en-plant.tsv: wikidump/enwiki-20260101-pages-articles-multistream.xml.bz2 scripts/parse-xmldump.py
 	python3 scripts/parse-xmldump.py -d wikidump/enwiki-20260101-pages-articles-multistream.xml.bz2 -t html/tax-en-plant.tsv -p html/page-en-plant.tsv -l err -r Plantae
 
 html/tax-en-animal.tsv html/page-en-animal.tsv: wikidump/enwiki-20260101-pages-articles-multistream.xml.bz2 scripts/parse-xmldump.py
