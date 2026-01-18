@@ -3,7 +3,7 @@
 A client-side web app to explore taxonomy across domains (e.g., plants, animals).
 Add pages, see their shared ancestry, and jump to Wikipedia for every node.
 Data is loaded from local TSV files generated from Wikipedia dumps. A demo can
-be accessed at github.io (TODO)
+be accessed at [my github.io](https://wuyongzheng.github.io/taxobox/index.html).
 
 ## Quick start
 
