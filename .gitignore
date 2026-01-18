@@ -1,0 +1,9 @@
+html/config.js
+html/index.html
+html/index-*-*.html
+html/config-*-*.js
+html/tax-*-*.tsv
+html/tax-*-*.tsv.gz
+html/page-*-*.tsv
+html/page-*-*.tsv.gz
+wikidump
