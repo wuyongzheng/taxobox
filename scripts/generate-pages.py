@@ -54,6 +54,7 @@ def main() -> None:
     domains = pages["domains"]
     default_lang = pages["default"]["lang"]
     default_domain = pages["default"]["domain"]
+    dump_date = pages.get("dump_date", "")
 
     for lang in languages:
         for domain in domains:
@@ -93,6 +94,7 @@ def main() -> None:
                 f"  TAX_TSV: \"{tax_tsv}\",\n"
                 f"  PAGE_TSV: \"{page_tsv}\",\n"
                 f"  LANGUAGE: \"{lang['label']}\",\n"
+                f"  WIKIDUMP_DATE: \"{dump_date}\",\n"
                 "};\n"
             )
             config_path.write_text(config_body, encoding="utf-8")
